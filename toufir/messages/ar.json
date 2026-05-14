@@ -1,0 +1,104 @@
+{
+  "app": {
+    "name": "توفير",
+    "tagline": "نشريو بجوج، نوفّرو بجوج"
+  },
+  "nav": {
+    "deals": "العروض",
+    "pickup": "نقط الاستلام",
+    "agents": "كن وكيل",
+    "suppliers": "كن مورّد",
+    "login": "دخول",
+    "signup": "تسجيل",
+    "wallet": "المحفظة",
+    "orders": "طلباتي",
+    "logout": "خروج"
+  },
+  "landing": {
+    "hero": {
+      "title": "بجمع طلباتكم، كنوفّرو فلوسكم",
+      "subtitle": "شارك في عروض الشراء الجماعي وحصل المنتجات بأثمنة الجملة من المورّدين المحليين.",
+      "cta_browse": "شوف العروض",
+      "cta_whatsapp": "بدا على واتساب"
+    },
+    "how": {
+      "title": "كيفاش كيخدم توفير؟",
+      "step1_title": "اختار عرض",
+      "step1_desc": "تصفح العروض النشطة في حيك",
+      "step2_title": "شارك",
+      "step2_desc": "ادفع وحجز حصتك. كنحبسو الفلوس فالأمان.",
+      "step3_title": "العرض كيتفعّل",
+      "step3_desc": "ملي يوصل العدد المطلوب من المشاركين",
+      "step4_title": "جيب طلبك",
+      "step4_desc": "اتلقاى عند الوكيل ديال حيك وأظهر رمز QR"
+    },
+    "trust": {
+      "title": "علاش توفير؟",
+      "escrow": "فلوسك محبوسة فلامان حتى تتأكد من الطلب",
+      "local": "وكلاء فحيك ديالك تحت يديك",
+      "darija": "خدم على واتساب بالدارجة، الفرنسية ولا العربية"
+    }
+  },
+  "auth": {
+    "phone_label": "رقم الهاتف",
+    "phone_placeholder": "+212 6XX XXX XXX",
+    "send_otp": "صيفط الرمز",
+    "code_label": "رمز التحقق",
+    "code_placeholder": "6 أرقام",
+    "verify": "تحقق",
+    "resend": "صيفط مرة أخرى",
+    "name_label": "الاسم الكامل",
+    "city_label": "المدينة",
+    "create_account": "أنشئ الحساب",
+    "errors": {
+      "invalid_phone": "رقم الهاتف غير صحيح",
+      "invalid_code": "الرمز غير صحيح",
+      "rate_limited": "حاول من بعد"
+    }
+  },
+  "deals": {
+    "title": "العروض النشطة",
+    "filter_city": "المدينة",
+    "filter_category": "الصنف",
+    "filter_all": "الكل",
+    "price_group": "ثمن المجموعة",
+    "price_retail": "ثمن التقسيط",
+    "save": "وفّر",
+    "participants": "{count} / {min} مشاركين",
+    "closes_in": "كيسد فـ {time}",
+    "join": "شارك دابا",
+    "joined": "شاركت",
+    "expired": "سدّ",
+    "pickup_at": "الاستلام عند",
+    "pickup_date": "تاريخ الاستلام"
+  },
+  "checkout": {
+    "title": "تأكيد الطلب",
+    "quantity": "الكمية",
+    "total": "المجموع",
+    "payment_method": "طريقة الدفع",
+    "method_card": "بطاقة بنكية (CMI)",
+    "method_wallet": "محفظتي",
+    "method_cod": "نقدا عند الاستلام",
+    "wallet_balance": "الرصيد: {amount}",
+    "confirm": "أكد ودفع",
+    "terms": "بنقر على \"أكد\"، كنوافق على الشروط"
+  },
+  "order": {
+    "thank_you": "شكرا! طلبك تأكد",
+    "pickup_code": "رمز الاستلام ديالك",
+    "show_qr": "أظهر هاد الرمز عند الوكيل",
+    "status_pending": "فانتظار التفعيل",
+    "status_activated": "تفعّل! جهّز للاستلام",
+    "status_fulfilled": "تسلم",
+    "status_cancelled": "تلغى ورجعت الفلوس"
+  },
+  "common": {
+    "loading": "كيتحمل...",
+    "error": "وقع خطأ",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "back": "رجوع",
+    "next": "التالي"
+  }
+}

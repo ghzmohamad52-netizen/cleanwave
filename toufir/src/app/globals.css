@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --primary: 145 95% 25%; /* Moroccan green */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 31 64% 47%; /* terracotta */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 30 20% 95%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 354 65% 46%; /* Moroccan red */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 145 95% 25%;
+    --radius: 0.75rem;
+  }
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --primary: 145 70% 50%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 31 64% 60%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 354 65% 56%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 145 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  html[dir="rtl"] body {
+    font-family: var(--font-arabic), Tajawal, system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .deal-card {
+    @apply rounded-xl border bg-card p-4 shadow-sm transition hover:shadow-md;
+  }
+  .progress-bar {
+    @apply h-2 overflow-hidden rounded-full bg-muted;
+  }
+  .progress-bar > div {
+    @apply h-full rounded-full bg-primary transition-all;
+  }
+}

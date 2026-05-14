@@ -1,0 +1,104 @@
+{
+  "app": {
+    "name": "Toufir",
+    "tagline": "On achète ensemble, on économise ensemble"
+  },
+  "nav": {
+    "deals": "Offres",
+    "pickup": "Points de retrait",
+    "agents": "Devenir agent",
+    "suppliers": "Devenir fournisseur",
+    "login": "Connexion",
+    "signup": "Inscription",
+    "wallet": "Portefeuille",
+    "orders": "Mes commandes",
+    "logout": "Déconnexion"
+  },
+  "landing": {
+    "hero": {
+      "title": "Regroupez vos commandes, payez le prix de gros",
+      "subtitle": "Participez à des achats groupés et obtenez des produits locaux au prix gros.",
+      "cta_browse": "Voir les offres",
+      "cta_whatsapp": "Démarrer sur WhatsApp"
+    },
+    "how": {
+      "title": "Comment ça marche ?",
+      "step1_title": "Choisissez",
+      "step1_desc": "Parcourez les offres actives près de chez vous",
+      "step2_title": "Participez",
+      "step2_desc": "Payez et réservez votre part. Les fonds sont en séquestre.",
+      "step3_title": "L'offre s'active",
+      "step3_desc": "Quand le minimum de participants est atteint",
+      "step4_title": "Récupérez",
+      "step4_desc": "Chez l'agent de votre quartier avec votre QR code"
+    },
+    "trust": {
+      "title": "Pourquoi Toufir ?",
+      "escrow": "Vos fonds sont sécurisés jusqu'à la livraison",
+      "local": "Des agents de proximité dans votre quartier",
+      "darija": "Disponible en darija, français et arabe sur WhatsApp"
+    }
+  },
+  "auth": {
+    "phone_label": "Numéro de téléphone",
+    "phone_placeholder": "+212 6XX XXX XXX",
+    "send_otp": "Envoyer le code",
+    "code_label": "Code de vérification",
+    "code_placeholder": "6 chiffres",
+    "verify": "Vérifier",
+    "resend": "Renvoyer",
+    "name_label": "Nom complet",
+    "city_label": "Ville",
+    "create_account": "Créer le compte",
+    "errors": {
+      "invalid_phone": "Numéro invalide",
+      "invalid_code": "Code invalide",
+      "rate_limited": "Trop de tentatives, réessayez plus tard"
+    }
+  },
+  "deals": {
+    "title": "Offres actives",
+    "filter_city": "Ville",
+    "filter_category": "Catégorie",
+    "filter_all": "Toutes",
+    "price_group": "Prix groupé",
+    "price_retail": "Prix détail",
+    "save": "Économisez",
+    "participants": "{count} / {min} participants",
+    "closes_in": "Ferme dans {time}",
+    "join": "Participer",
+    "joined": "Inscrit",
+    "expired": "Terminée",
+    "pickup_at": "Retrait chez",
+    "pickup_date": "Date de retrait"
+  },
+  "checkout": {
+    "title": "Confirmer la commande",
+    "quantity": "Quantité",
+    "total": "Total",
+    "payment_method": "Mode de paiement",
+    "method_card": "Carte bancaire (CMI)",
+    "method_wallet": "Mon portefeuille",
+    "method_cod": "Paiement à la livraison",
+    "wallet_balance": "Solde: {amount}",
+    "confirm": "Confirmer & payer",
+    "terms": "En cliquant, j'accepte les conditions"
+  },
+  "order": {
+    "thank_you": "Merci ! Commande confirmée",
+    "pickup_code": "Votre code de retrait",
+    "show_qr": "Présentez ce code à l'agent",
+    "status_pending": "En attente d'activation",
+    "status_activated": "Activée ! Prête au retrait",
+    "status_fulfilled": "Livrée",
+    "status_cancelled": "Annulée et remboursée"
+  },
+  "common": {
+    "loading": "Chargement…",
+    "error": "Une erreur est survenue",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "back": "Retour",
+    "next": "Suivant"
+  }
+}

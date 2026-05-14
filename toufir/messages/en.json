@@ -1,0 +1,104 @@
+{
+  "app": {
+    "name": "Toufir",
+    "tagline": "Buy together, save together"
+  },
+  "nav": {
+    "deals": "Deals",
+    "pickup": "Pickup points",
+    "agents": "Become an agent",
+    "suppliers": "Become a supplier",
+    "login": "Log in",
+    "signup": "Sign up",
+    "wallet": "Wallet",
+    "orders": "My orders",
+    "logout": "Log out"
+  },
+  "landing": {
+    "hero": {
+      "title": "Pool your orders, pay wholesale prices",
+      "subtitle": "Join group buys and get local products at wholesale prices from trusted suppliers.",
+      "cta_browse": "Browse deals",
+      "cta_whatsapp": "Start on WhatsApp"
+    },
+    "how": {
+      "title": "How it works",
+      "step1_title": "Pick a deal",
+      "step1_desc": "Browse active group buys in your neighborhood",
+      "step2_title": "Join",
+      "step2_desc": "Pay and reserve your share. Funds held in escrow.",
+      "step3_title": "Deal activates",
+      "step3_desc": "When the minimum number of participants is reached",
+      "step4_title": "Pick up",
+      "step4_desc": "Meet your neighborhood agent and show your QR code"
+    },
+    "trust": {
+      "title": "Why Toufir?",
+      "escrow": "Your money is secured until pickup",
+      "local": "Neighborhood agents you can trust",
+      "darija": "Chat on WhatsApp in Darija, French or Arabic"
+    }
+  },
+  "auth": {
+    "phone_label": "Phone number",
+    "phone_placeholder": "+212 6XX XXX XXX",
+    "send_otp": "Send code",
+    "code_label": "Verification code",
+    "code_placeholder": "6 digits",
+    "verify": "Verify",
+    "resend": "Resend",
+    "name_label": "Full name",
+    "city_label": "City",
+    "create_account": "Create account",
+    "errors": {
+      "invalid_phone": "Invalid phone number",
+      "invalid_code": "Invalid code",
+      "rate_limited": "Too many attempts, try again later"
+    }
+  },
+  "deals": {
+    "title": "Active deals",
+    "filter_city": "City",
+    "filter_category": "Category",
+    "filter_all": "All",
+    "price_group": "Group price",
+    "price_retail": "Retail price",
+    "save": "Save",
+    "participants": "{count} / {min} participants",
+    "closes_in": "Closes in {time}",
+    "join": "Join now",
+    "joined": "Joined",
+    "expired": "Expired",
+    "pickup_at": "Pickup at",
+    "pickup_date": "Pickup date"
+  },
+  "checkout": {
+    "title": "Confirm order",
+    "quantity": "Quantity",
+    "total": "Total",
+    "payment_method": "Payment method",
+    "method_card": "Bank card (CMI)",
+    "method_wallet": "My wallet",
+    "method_cod": "Cash on delivery",
+    "wallet_balance": "Balance: {amount}",
+    "confirm": "Confirm & pay",
+    "terms": "By clicking, I accept the terms"
+  },
+  "order": {
+    "thank_you": "Thanks! Order confirmed",
+    "pickup_code": "Your pickup code",
+    "show_qr": "Show this code to the agent",
+    "status_pending": "Waiting for activation",
+    "status_activated": "Activated! Ready for pickup",
+    "status_fulfilled": "Delivered",
+    "status_cancelled": "Cancelled and refunded"
+  },
+  "common": {
+    "loading": "Loading…",
+    "error": "An error occurred",
+    "save": "Save",
+    "cancel": "Cancel",
+    "back": "Back",
+    "next": "Next"
+  }
+}

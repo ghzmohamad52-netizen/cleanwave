@@ -1,0 +1,273 @@
+// Toufir — Moroccan group buying marketplace
+// Prisma schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum Role {
+  CUSTOMER
+  AGENT
+  SUPPLIER
+  ADMIN
+}
+
+enum DealStatus {
+  OPEN
+  ACTIVATED
+  FULFILLED
+  CANCELLED
+  EXPIRED
+}
+
+enum PaymentMethod {
+  CMI_CARD
+  WALLET
+  COD
+}
+
+enum PaymentStatus {
+  PENDING
+  HELD_IN_ESCROW
+  RELEASED
+  REFUNDED
+  FAILED
+}
+
+enum TransactionType {
+  TOPUP
+  PURCHASE
+  REFUND
+  COMMISSION
+  WITHDRAWAL
+}
+
+enum NotificationChannel {
+  WHATSAPP
+  SMS
+  EMAIL
+  PUSH
+}
+
+model User {
+  id            String   @id @default(cuid())
+  phone         String   @unique
+  email         String?  @unique
+  fullName      String
+  role          Role     @default(CUSTOMER)
+  city          String
+  neighborhood  String?
+  walletBalance Decimal  @default(0) @db.Decimal(10, 2)
+  rating        Float    @default(5.0)
+  isVerified    Boolean  @default(false)
+  language      String   @default("ar")
+  authId        String?  @unique // Supabase auth user id
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  orders        Order[]
+  agentDeals    Deal[]    @relation("AgentDeals")
+  reviews       Review[]
+  wallet        WalletTransaction[]
+  pickupPoint   PickupPoint?
+  notifications Notification[]
+
+  @@index([phone])
+  @@index([role])
+  @@index([city])
+}
+
+model Supplier {
+  id            String   @id @default(cuid())
+  businessName  String
+  ice           String   @unique
+  rc            String?
+  contactPhone  String
+  bankAccount   String?
+  city          String
+  logoUrl       String?
+  isApproved    Boolean  @default(false)
+  commissionPct Float    @default(5.0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  products      Product[]
+  deals         Deal[]
+
+  @@index([ice])
+  @@index([isApproved])
+}
+
+model Product {
+  id              String   @id @default(cuid())
+  supplierId      String
+  nameAr          String
+  nameFr          String
+  nameEn          String?
+  descriptionAr   String   @db.Text
+  descriptionFr   String   @db.Text
+  category        String
+  images          String[]
+  retailPrice     Decimal  @db.Decimal(10, 2)
+  unit            String
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  supplier        Supplier @relation(fields: [supplierId], references: [id], onDelete: Cascade)
+  deals           Deal[]
+
+  @@index([supplierId])
+  @@index([category])
+}
+
+model PickupPoint {
+  id          String   @id @default(cuid())
+  agentId     String   @unique
+  name        String
+  address     String
+  city        String
+  neighborhood String
+  lat         Float
+  lng         Float
+  openHours   String?
+  phone       String
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  agent       User     @relation(fields: [agentId], references: [id], onDelete: Cascade)
+
+  @@index([city])
+  @@index([neighborhood])
+}
+
+model Deal {
+  id              String   @id @default(cuid())
+  productId       String
+  supplierId      String
+  agentId         String?
+
+  groupPrice      Decimal  @db.Decimal(10, 2)
+  minParticipants Int
+  maxParticipants Int?
+  currentCount    Int      @default(0)
+
+  pickupLocation  String
+  pickupLat       Float
+  pickupLng       Float
+  pickupDate      DateTime
+
+  closesAt        DateTime
+  status          DealStatus @default(OPEN)
+
+  product         Product   @relation(fields: [productId], references: [id])
+  supplier        Supplier  @relation(fields: [supplierId], references: [id])
+  agent           User?     @relation("AgentDeals", fields: [agentId], references: [id])
+  orders          Order[]
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([status])
+  @@index([closesAt])
+  @@index([supplierId])
+  @@index([agentId])
+}
+
+model Order {
+  id              String   @id @default(cuid())
+  userId          String
+  dealId          String
+  quantity        Int      @default(1)
+  totalAmount     Decimal  @db.Decimal(10, 2)
+  paymentMethod   PaymentMethod
+  paymentStatus   PaymentStatus @default(PENDING)
+  paymentRef      String?  // CMI transaction reference
+  pickupCode      String   @unique
+  isPickedUp      Boolean  @default(false)
+  pickedUpAt      DateTime?
+
+  user            User     @relation(fields: [userId], references: [id])
+  deal            Deal     @relation(fields: [dealId], references: [id])
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([userId])
+  @@index([dealId])
+  @@index([paymentStatus])
+}
+
+model WalletTransaction {
+  id          String   @id @default(cuid())
+  userId      String
+  amount      Decimal  @db.Decimal(10, 2)
+  type        TransactionType
+  reference   String?
+  description String
+  createdAt   DateTime @default(now())
+
+  user        User     @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([type])
+}
+
+model Review {
+  id          String   @id @default(cuid())
+  userId      String
+  targetType  String
+  targetId    String
+  rating      Int
+  comment     String?
+  createdAt   DateTime @default(now())
+
+  user        User     @relation(fields: [userId], references: [id])
+
+  @@index([targetType, targetId])
+}
+
+model Notification {
+  id          String   @id @default(cuid())
+  userId      String
+  channel     NotificationChannel
+  template    String
+  payload     Json
+  sentAt      DateTime?
+  error       String?
+  createdAt   DateTime @default(now())
+
+  user        User     @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+  @@index([sentAt])
+}
+
+model OtpAttempt {
+  id        String   @id @default(cuid())
+  phone     String
+  codeHash  String
+  expiresAt DateTime
+  attempts  Int      @default(0)
+  consumed  Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([phone])
+}
+
+model WhatsAppConversation {
+  id        String   @id @default(cuid())
+  phone     String
+  messages  Json     // last N messages [{role, content, ts}]
+  context   Json?    // structured state (current deal, cart, etc.)
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
+
+  @@unique([phone])
+}
