@@ -10,7 +10,11 @@ export async function transcribeVoice(
     throw new Error("OPENAI_API_KEY not configured");
   }
   const form = new FormData();
-  form.append("file", new Blob([audioBuffer], { type: mimeType }), "voice.ogg");
+  form.append(
+    "file",
+    new Blob([new Uint8Array(audioBuffer)], { type: mimeType }),
+    "voice.ogg"
+  );
   form.append("model", "whisper-1");
   form.append("language", lang);
   form.append("response_format", "text");
